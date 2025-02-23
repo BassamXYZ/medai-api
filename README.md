@@ -23,10 +23,10 @@ Then, enable the virtual environment
 source .venv/bin/activate
 ```
 
-One last step is to make sure OpenAI keys are 
+One last step is to make sure OpenAI keys are set
 ```bash
-MODEL=gpt-4o
-OPENAI_API_KEY=sk-proj-xxx
+echo "MODEL=gpt-4o                                                                                                                                                              hack4syria-medai
+OPENAI_API_KEY=sk-proj-xxx" > .env
 ```
 
 ### Customizing
