@@ -31,8 +31,6 @@ OPENAI_API_KEY=sk-proj-xxx" > .env
 
 ### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
 - Modify `src/hack4syria_medai/config/agents.yaml` to define your agents
 - Modify `src/hack4syria_medai/config/tasks.yaml` to define your tasks
 - Modify `src/hack4syria_medai/crew.py` to add your own logic, tools and specific args
