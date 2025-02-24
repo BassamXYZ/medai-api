@@ -1,17 +1,90 @@
-research_task:
-  description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+translation_to_ar:
+  description: >-
+    Translate the Arabic medical text {topic} to English, ensuring accurate translation of medical terminology,
+    symptoms, and patient complaints. Pay special attention to medical jargon, colloquial health
+    expressions, and regional variations in describing symptoms. Maintain the medical context and
+    severity indicators in the translation.
+  expected_output: >-
+    A precise English translation of the medical text that preserves all medical terminology,
+    symptom descriptions, and context. The translation should be in clear, professional medical
+    language suitable for healthcare providers.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
-  expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+privacy_check:
+  description: >-
+    Analyze the translated text for any personally identifiable information (PII) and sensitive
+    health information. Apply WHO-compliant masking to protect patient privacy while preserving
+    medically relevant information. Check for and mask: names, dates of birth, addresses, contact
+    information, unique medical identifiers, and any other identifying details.
+  expected_output: >-
+    A privacy-compliant version of the medical text with all PII appropriately masked, along
+    with a log of what types of information were protected. Include confirmation of compliance
+    with WHO guidelines and relevant privacy standards.
+
+information_gathering:
+  description: >-
+    Review the provided medical information and identify any gaps in the patient history or
+    symptoms. Generate relevant follow-up questions to gather complete information about:
+    primary symptoms, onset and progression, related symptoms, medical history, medications,
+    allergies, family history, and lifestyle factors. Ensure all information necessary for
+    accurate diagnosis is collected.
+  expected_output: >-
+    A comprehensive list of follow-up questions, organized by category (e.g., symptom details,
+    medical history, etc.). Include explanation of why each piece of information is needed.
+    Flag any critical missing information that could affect diagnosis.
+
+initial_diagnosis:
+  description: >-
+    Analyze all gathered patient information to develop initial diagnostic hypotheses. Consider
+    the presentation, risk factors, and symptom patterns. Evaluate the urgency and severity
+    of the condition. Determine whether specialist consultation is needed, particularly for
+    cardiac issues. Create a prioritized list of potential diagnoses with reasoning.
+  expected_output: >-
+    A detailed diagnostic assessment including - prioritized differential diagnoses, confidence
+    levels for each potential diagnosis, urgency assessment, and clear recommendation for
+    either direct treatment or specialist referral. Include reasoning for all conclusions.
+
+cardiac_consultation:
+  description: >-
+    If cardiac involvement is suspected, perform specialized cardiac assessment. Analyze all
+    cardiac-relevant symptoms, risk factors, and historical information. Consider necessary
+    cardiac tests or monitoring. Evaluate emergency cardiac care needs. Provide specialized
+    cardiac diagnostic insights and treatment recommendations.
+  expected_output: >-
+    Detailed cardiac assessment including - specific cardiac diagnosis or differential diagnoses,
+    recommended cardiac tests or monitoring, treatment recommendations, urgency level, and
+    follow-up requirements. Include specific cardiac risk factors identified and their significance.
+
+medical_validation:
+  description: >-
+    Validate all diagnostic conclusions and treatment recommendations against current medical
+    literature and best practices. Search medical databases for relevant research, clinical
+    guidelines, and treatment protocols. Cross-reference presenting symptoms and proposed
+    diagnoses with established medical knowledge. Identify any recent relevant medical studies
+    or updated guidelines.
+  expected_output: >-
+    A validation report including - citations of relevant medical literature, confirmation of
+    alignment with current best practices, any contraindications or warnings identified, and
+    confidence scores for diagnostic conclusions. Include links to relevant studies and guidelines.
+
+final_report_generation:
+  description: >-
+    Synthesize all findings, validations, and recommendations into a comprehensive final
+    report. Include confidence scores for diagnoses, citations for medical evidence, and
+    clear treatment recommendations. Ensure all critical information is included and properly
+    weighted. Structure the report for clarity and actionability.
+  expected_output: >-
+    A structured medical report including - final diagnosis or differential diagnoses with
+    confidence scores, supporting evidence and citations, recommended treatment plan or
+    specialist referral, urgency level, and follow-up recommendations. Include summary of
+    key findings and decision rationale.
+
+final_translation:
+  description: >-
+    Translate the final report that is produced be the previous task final_report_generation from English to Arabic, ensuring accurate translation of all
+    medical terminology, diagnoses, and recommendations. Maintain the professional medical
+    tone while ensuring clarity for Arabic-speaking healthcare providers and patients.
+    Preserve all confidence scores, citations, and urgency indicators.
+  expected_output: >-
+    An accurate Arabic translation of the final report, preserving all medical terminology,
+    diagnostic conclusions, confidence scores, and recommendations. The translation should
+    be in professional medical Arabic suitable for both healthcare providers and patients.

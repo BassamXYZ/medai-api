@@ -7,7 +7,10 @@ requires-python = ">=3.10,<3.13"
 dependencies = [
     "crewai[tools]>=0.102.0,<1.0.0",
     "dotenv>=0.9.9",
+    "langchain>=0.3.19",
+    "langchain-community>=0.3.18",
     "ruff>=0.9.7",
+    "xmltodict>=0.14.2",
 ]
 
 [project.scripts]
