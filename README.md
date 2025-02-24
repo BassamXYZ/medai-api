@@ -19,11 +19,13 @@ cd hack4syria_medai && uv sync
 ```
 
 Then, enable the virtual environment
+
 ```bash
 source .venv/bin/activate
 ```
 
 One last step is to make sure OpenAI keys are set
+
 ```bash
 echo "MODEL=gpt-4o                                                                                                                                                              hack4syria-medai
 OPENAI_API_KEY=sk-proj-xxx" > .env
@@ -41,14 +43,16 @@ OPENAI_API_KEY=sk-proj-xxx" > .env
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
 
 enable the virtual environment
+
 ```bash
 source .venv/bin/activate
 ```
-run
-```bash
-python src/hack4syria_medai/main.py
-```
 
+run (dev mode)
+
+```bash
+fastapi dev src/api/main.py
+```
 
 ## Understanding Your Crew
 
@@ -57,10 +61,12 @@ The hack4syria_medai Crew is composed of multiple AI agents, each with unique ro
 ## Support
 
 For support, questions, or feedback regarding the Hack4SyriaMedai Crew or crewAI.
+
 - Visit our [documentation](https://docs.crewai.com)
 - Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
 - [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
 - [Chat with our docs](https://chatg.pt/DWjSBZn)
 
+```
 
 ```
