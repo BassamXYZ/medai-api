@@ -111,7 +111,7 @@ class Hack4SyriaMedai:
         )
 
     @crew
-    def crew(self, websocket) -> Crew:
+    def crew(self) -> Crew:
         """Creates the Hack4SyriaMedai crew"""
 
         return Crew(
