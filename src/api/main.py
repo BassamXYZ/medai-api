@@ -33,7 +33,7 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/api/chat")
+@app.post("/api/chat")
 def chat(question: Question) -> list[TaskOutput]:
     input = {"topic": question.user_question}
     result = Hack4SyriaMedai().crew().kickoff(inputs=input)

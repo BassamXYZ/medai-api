@@ -1,11 +1,17 @@
-from crewai import Agent, Crew, Process, Task
+import os
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
-from langchain_community.tools.pubmed.tool import PubmedQueryRun
-
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+
+
+llm = LLM(
+    model="gemini/gemini-1.5-flash",
+    temperature=0.7,
+    api_key=os.getenv("GOOGLE_API_KEY")
+)
 
 
 @CrewBase
@@ -22,36 +28,37 @@ class Hack4SyriaMedai:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
     def translation_agent(self) -> Agent:
-        print(f"Translation agent config: {self.agents_config['translation_agent']}")
-        return Agent(config=self.agents_config["translation_agent"], verbose=True)
+        print(
+            f"Translation agent config: {self.agents_config['translation_agent']}")
+        return Agent(config=self.agents_config["translation_agent"], verbose=True, llm=llm)
 
     @agent
     def privacy_agent(self) -> Agent:
-        return Agent(config=self.agents_config["privacy_agent"], verbose=True)
+        return Agent(config=self.agents_config["privacy_agent"], verbose=True, llm=llm)
 
     @agent
     def first_line_support_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config["first_line_support_agent"], verbose=True
+            config=self.agents_config["first_line_support_agent"], verbose=True, llm=llm
         )
 
     @agent
     def diagnosis_agent(self) -> Agent:
-        return Agent(config=self.agents_config["diagnosis_agent"], verbose=True)
+        return Agent(config=self.agents_config["diagnosis_agent"], verbose=True, llm=llm)
 
     @agent
     def cardiology_specialist_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config["cardiology_specialist_agent"], verbose=True
+            config=self.agents_config["cardiology_specialist_agent"], verbose=True, llm=llm
         )
 
     @agent
     def medical_knowledge_agent(self) -> Agent:
-        return Agent(config=self.agents_config["medical_knowledge_agent"], verbose=True)
+        return Agent(config=self.agents_config["medical_knowledge_agent"], verbose=True, llm=llm)
 
     @agent
     def final_output_agent(self) -> Agent:
-        return Agent(config=self.agents_config["final_output_agent"], verbose=True)
+        return Agent(config=self.agents_config["final_output_agent"], verbose=True, llm=llm)
 
     @task
     def translation_to_ar(self) -> Task:
@@ -65,7 +72,8 @@ class Hack4SyriaMedai:
     @task
     def privacy_check(self) -> Task:
         return Task(
-            config=self.tasks_config["privacy_check"], agent=self.privacy_agent(),
+            config=self.tasks_config["privacy_check"], agent=self.privacy_agent(
+            ),
             output_file="output/privacy_check_output.txt"
         )
 
@@ -80,7 +88,8 @@ class Hack4SyriaMedai:
     @task
     def initial_diagnosis(self) -> Task:
         return Task(
-            config=self.tasks_config["initial_diagnosis"], agent=self.diagnosis_agent(),
+            config=self.tasks_config["initial_diagnosis"], agent=self.diagnosis_agent(
+            ),
             output_file="output/initial_diagnosis_output.txt",
         )
 
