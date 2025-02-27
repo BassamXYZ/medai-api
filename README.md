@@ -5,7 +5,7 @@ This API powered by [Crewai](https://www.crewai.com/) and [FastAPI](https://fast
 
 ## Demo & UI Links
 
-* [Project Demo](codoc.onrender.com)
+* [Project Demo](https://codoc.onrender.com)
 * [UI git repo](https://github.com/AiQotayba/codoc-ai)
 
 ## Installation
