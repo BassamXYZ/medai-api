@@ -1,6 +1,12 @@
-# Hack4SyriaMedai Crew
+# CoDoc AI
 
-Welcome to the Hack4SyriaMedai Crew project, powered by [crewAI](https://crewai.com). T
+Welcome to CoDoc project API.
+This API powered by [Crewai](https://www.crewai.com/) and [FastAPI](https://fastapi.tiangolo.com/)
+
+## Demo & UI Links
+
+* [Project Demo](codoc.onrender.com)
+* [UI git repo](https://github.com/AiQotayba/codoc-ai)
 
 ## Installation
 
@@ -60,13 +66,4 @@ The hack4syria_medai Crew is composed of multiple AI agents, each with unique ro
 
 ## Support
 
-For support, questions, or feedback regarding the Hack4SyriaMedai Crew or crewAI.
-
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-```
-
-```
+For support, questions, or feedback regarding the CoDoc Project rise an issue on this repo or send email to [bassam.essam.ahmad@gmail.com](bassam.essam.ahmad@gmail.com)
